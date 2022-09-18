@@ -10,10 +10,10 @@ function countAandB(input) {
 }
 function toNumber(input) {
     // your code here
-    let arr=['a', 'b', 'c', 'd', 'e'];
     let result = [];
     for(var i = 0; i<input.length; i++){
-        result.push(arr.indexOf(input[i])+1);
+        var str=input[i];
+        result.push(str.charCodeAt(0)-96);
     }
     return result;
 }
