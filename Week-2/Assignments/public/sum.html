@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+   
+    
+    <section>
+        
+        <h1>Please input a number</h1>
+        <link rel="stylesheet" href="../sum.css">
+        <br><br>
+        <input type="text" name="number" id="number" />
+        <br><br>
+        
+        <button id="load" type="submit">Enter</button>
+        <br><br>
+        <div id="ajax"></div>
+    </section>
+
+
+
+<script >
+    document.getElementById("load").addEventListener('click',function(){
+        var xhr = new XMLHttpRequest();
+        console.log(document.getElementById('number').value);
+        //var url='http://localhost:3000/data?number='+document.getElementById('number').value;
+        var url='http://localhost:3000/data?number='+document.getElementById('number').value;
+        xhr.open('GET',url);
+        xhr.send();
+       
+        xhr.onload= function(){
+            if( xhr.status === 200){
+               console.log(JSON.parse(xhr.responseText));
+                document.getElementById('ajax').innerHTML=JSON.parse(xhr.responseText);
+            
+            }else{
+            console.log('err')
+            }
+        };
+
+        
+            
+    });
+   
+    
+</script>
+</body>
+</html>
